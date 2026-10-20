@@ -20,6 +20,30 @@
         ],
         "createdAt": "2026-10-20T12:14:19.982Z",
         "reason": "Detector counts only fixed px sizes; headings are clamp() 30-80px. Small sizes consolidated after the mode sweep (2026-10-20)"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "6px",
+        "createdAt": "2026-10-20T12:18:49.343Z",
+        "reason": "Focus-ring softening, documented as off-system in DESIGN.md"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(9,24,48,.82)",
+        "createdAt": "2026-10-20T12:18:49.410Z",
+        "reason": "Hero photo overlay stop; Shipped intentional value recorded from the built page (pitch-site build 2026-10-20)"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "11px",
+        "createdAt": "2026-10-20T12:18:49.475Z",
+        "reason": "Wordmark subline under 360px only; Shipped intentional value recorded from the built page (pitch-site build 2026-10-20)"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "25px",
+        "createdAt": "2026-10-20T12:18:49.540Z",
+        "reason": "Desktop wordmark size; Shipped intentional value recorded from the built page (pitch-site build 2026-10-20)"
       }
     ]
   }
