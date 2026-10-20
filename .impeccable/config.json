@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-20T12:08:54.573Z",
+        "reason": "Ellie chose the calm band style's faint diagonal texture as a house default (pitch-site calm-photo-style.md, 2026-10-19)"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-20T12:14:19.982Z",
+        "reason": "Detector counts only fixed px sizes; headings are clamp() 30-80px. Small sizes consolidated after the mode sweep (2026-10-20)"
+      }
+    ]
+  }
+}

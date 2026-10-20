@@ -92,7 +92,7 @@ section{padding:64px 0}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding-top:max(8px,env(safe-area-inset-top))}
 .brand{display:flex;flex-direction:column;justify-content:center;min-height:44px;text-decoration:none;line-height:1}
 .brand b{font:400 22px/1 var(--display);letter-spacing:.01em}
-.brand span{font:600 11px/1 var(--text);letter-spacing:.08em;white-space:nowrap;text-transform:uppercase;color:var(--soft);margin-top:5px}
+.brand span{font:600 12px/1 var(--text);letter-spacing:.08em;white-space:nowrap;text-transform:uppercase;color:var(--soft);margin-top:5px}
 .tel{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 2px;font:400 17px/1 var(--display);text-decoration:none;white-space:nowrap}
 .tel svg{width:18px;height:18px;flex:none;color:var(--brick-ink)}
 
@@ -100,7 +100,7 @@ section{padding:64px 0}
 .hero{padding:0;position:relative;background:var(--deep);color:var(--on-dark);overflow:hidden;isolation:isolate}
 .hero-photo{position:absolute;inset:0;z-index:-2}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(9,24,48,.78) 0%,rgba(9,24,48,.6) 55%,rgba(9,24,48,.8) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(9,24,48,.82) 0%,rgba(9,24,48,.74) 55%,rgba(9,24,48,.84) 100%)}
 .hero-copy{display:grid;gap:20px;justify-items:start;padding-top:64px;padding-bottom:76px}
 .hero h1{color:#fff;font-size:clamp(42px,12vw,80px);line-height:1.02;max-width:11ch}
 /* H1 bounce-in (after lpmr.co.uk): each letter slides in from 50px right with a slight overshoot, 20ms apart */
@@ -153,16 +153,17 @@ input[type=text]:focus,textarea:focus{outline:none;border-color:var(--focus)}
 .chips label{display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border-radius:var(--pill);background:var(--field);border:2px solid transparent;font:16px/1 var(--text);color:var(--ink);cursor:pointer;margin:0;transition:border-color .15s,background-color .15s,color .15s}
 .chips input:focus-visible+label{outline:3px solid var(--focus);outline-offset:2px}
 .chips input:checked+label{background:var(--ink);color:#fff}
-.err{display:none;font-size:15px;color:var(--error)}
+.err{display:none;font-size:16px;color:var(--error)}
 .field.bad .err{display:block}
 .field.bad input[type=text],.field.bad input[type=text]:focus,.field.bad textarea{border-color:var(--error)}
-.field.bad .chips label{border-color:var(--error)}
 form .btn-primary{width:100%}
 form .btn-primary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.after{font-size:15px;color:var(--soft)}
+.after{font-size:14px;color:var(--soft)}
 .sent{color:var(--ink);font-weight:600}
-.sent a{white-space:nowrap;display:inline-block;padding:11px 0;margin:-11px 0}
+.sent a,.linkbtn{white-space:nowrap;display:inline-block;padding:11px 0;margin:-11px 0}
+.linkbtn{font:inherit;color:inherit;background:none;border:0;text-decoration:underline;cursor:pointer}
 @media (max-width:380px){.chips label{padding:0 14px}}
+@media (max-width:359px){:root{--gutter:16px}.brand b{font-size:20px}.brand span{font-size:11px;letter-spacing:.06em}.tel{font-size:16px;gap:6px}.tel svg{width:16px;height:16px}}
 
 /* ---------- Close ---------- */
 .close .who{margin-top:14px;font-size:clamp(18px,5vw,20px);color:var(--soft)}
@@ -195,15 +196,18 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-d
   .tel{font-size:20px}
   section{padding:96px 0}
   .hero-copy{padding-top:120px;padding-bottom:136px}
+  /* text sits on the left: darken that side so brick seams never run through it */
+  .hero::after{background:linear-gradient(90deg,rgba(9,24,48,.62) 0 45%,rgba(9,24,48,0) 85%),linear-gradient(180deg,rgba(9,24,48,.8) 0%,rgba(9,24,48,.66) 55%,rgba(9,24,48,.82) 100%)}
   .hero h1{max-width:13ch}
   .promise{max-width:34ch}
   .actions{grid-auto-flow:column;justify-content:start;width:auto}
   .actions .btn{min-width:240px}
   .services{grid-template-columns:1fr 1fr}
-}
-@media (min-width:1024px){
-  .work .wrap{grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;column-gap:64px;row-gap:32px;align-items:start}
+  .work .wrap{grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;column-gap:40px;row-gap:32px;align-items:start}
   .work .photo{grid-column:2;grid-row:1/3}
+}
+@media (min-width:1024px){.work .wrap{column-gap:64px}}
+@media (min-width:1024px){
   .ask .wrap{grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
   .ask .head{position:sticky;top:120px}
   .close .wrap{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end}
@@ -250,7 +254,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </svg>
 <header class="top" id="topbar">
   <div class="wrap">
-    <a class="brand" href="#" aria-label="Arriaga's Pool and Spa Renovation, back to top"><b>Arriaga's</b><span>Pool &amp; Spa Renovation</span></a>
+    <a class="brand" href="#" aria-label="Arriaga's Pool and Spa Renovation, back to top"><b>Arriaga’s</b><span>Pool &amp; Spa Renovation</span></a>
     <a class="tel" href="tel:+12157685602"><svg aria-hidden="true"><use href="#i-phone"/></svg>215-768-5602</a>
   </div>
 </header>
@@ -264,10 +268,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="wrap hero-copy">
     <p class="eyebrow">Free estimates</p>
     <h1 id="h1">Pools <span class="accent">built to last</span> in PA, NJ &amp; DE.</h1>
-    <p class="promise">Small pool problems today become expensive repairs tomorrow. Let's fix yours before spring.</p>
+    <p class="promise">Small pool problems today become expensive repairs tomorrow. Let’s fix yours before spring.</p>
     <div class="actions">
       <a class="btn btn-primary" href="#ask">Get a free estimate</a>
-      <a class="btn btn-ghost" data-sms href="sms:+12157685602?&amp;body=Hi%2C%20I%20found%20your%20website.%20I'd%20like%20a%20free%20estimate%20for%20my%20pool."><svg aria-hidden="true"><use href="#i-chat"/></svg>Text us</a>
+      <a class="btn btn-ghost" href="sms:+12157685602?&amp;body=Hi%2C%20I%20found%20your%20website.%20I'd%20like%20a%20free%20estimate%20for%20my%20pool."><svg aria-hidden="true"><use href="#i-chat"/></svg>Text us</a>
     </div>
   </div>
 </section>
@@ -290,12 +294,12 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="wrap">
     <div class="head rise">
       <span class="eyebrow">Our work</span>
-      <h2 id="h-work">Built to <span class="accent">last.</span></h2>
-      <p class="lede">Your pool is the heart of your backyard. We treat it like it's our own: every tile set straight, every brick laid true, done right the first time so you're not calling someone again next summer.</p>
+      <h2 id="h-work">Done right the <span class="accent">first time.</span></h2>
+      <p class="lede">We treat your pool like it’s our own: every tile set straight, every brick laid true, so you’re not calling someone again next summer.</p>
     </div>
-    <figure class="photo rise"><img src="img/work-01.webp" width="800" height="1000" loading="lazy" decoding="async" alt="A pool and round spa mid-renovation: new blue glass tile and red brick coping, with the old plaster stripped and ready to resurface."></figure>
+    <figure class="photo rise"><img src="img/work-01.webp" width="1040" height="1300" loading="lazy" decoding="async" alt="A pool and round spa mid-renovation: new blue glass tile and red brick coping, with the old plaster stripped and ready to resurface."></figure>
     <a class="fb rise" href="https://www.facebook.com/groups/993793040776921/permalink/3653115948177937/" rel="noopener">
-      <span class="lbl"><svg aria-hidden="true"><use href="#i-fb"/></svg>Click to see more of our work.</span>
+      <span class="lbl"><svg aria-hidden="true"><use href="#i-fb"/></svg>See this job on Facebook.</span>
       <span class="arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
     </a>
   </div>
@@ -305,9 +309,9 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="wrap">
     <h2 id="h-how" class="rise">How it works</h2>
     <ol class="steps">
-      <li class="rise"><div><b>Call or text us.</b><span>Tell us what's going on with your pool.</span></div></li>
+      <li class="rise"><div><b>Call or text us.</b><span>Tell us what’s going on with your pool.</span></div></li>
       <li class="rise"><div><b>We give you a free estimate.</b><span>What it needs and what it costs, straight.</span></div></li>
-      <li class="rise"><div><b>We build it to last.</b><span>Ready for the first warm day.</span></div></li>
+      <li class="rise"><div><b>We do the work properly.</b><span>Ready for the first warm day.</span></div></li>
     </ol>
   </div>
 </section>
@@ -316,24 +320,24 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="wrap">
     <div class="head rise">
       <h2 id="h-ask">Get your free <span class="accent">estimate.</span></h2>
-      <p class="lede">Not sure what your pool needs? Pick "Not sure" and tell us what you're seeing.</p>
+      <p class="lede">Not sure what your pool needs? Pick “Not sure” and tell us what you’re seeing.</p>
     </div>
     <form id="quoteForm" class="rise" novalidate>
       <fieldset class="field" id="f-svc">
         <legend>What does your pool need?</legend>
         <div class="chips">
-          <input type="radio" name="svc" id="s1" value="Plaster &amp; resurfacing"><label for="s1">Plaster &amp; resurfacing</label>
-          <input type="radio" name="svc" id="s2" value="Tile &amp; coping"><label for="s2">Tile &amp; coping</label>
-          <input type="radio" name="svc" id="s3" value="Pool deck &amp; repairs"><label for="s3">Deck &amp; repairs</label>
-          <input type="radio" name="svc" id="s4" value="Complete renovation"><label for="s4">Complete renovation</label>
-          <input type="radio" name="svc" id="s5" value="Not sure yet"><label for="s5">Not sure</label>
+          <input type="radio" name="svc" id="s1" aria-describedby="e-svc" value="Plaster &amp; resurfacing"><label for="s1">Plaster &amp; resurfacing</label>
+          <input type="radio" name="svc" id="s2" aria-describedby="e-svc" value="Tile &amp; coping"><label for="s2">Tile &amp; coping</label>
+          <input type="radio" name="svc" id="s3" aria-describedby="e-svc" value="Pool deck &amp; repairs"><label for="s3">Deck &amp; repairs</label>
+          <input type="radio" name="svc" id="s4" aria-describedby="e-svc" value="Complete renovation"><label for="s4">Complete renovation</label>
+          <input type="radio" name="svc" id="s5" aria-describedby="e-svc" value="Not sure yet"><label for="s5">Not sure</label>
         </div>
-        <p class="err" id="e-svc">Pick one, or "Not sure".</p>
+        <p class="err" id="e-svc">Pick one, or “Not sure”.</p>
       </fieldset>
       <div class="field" id="f-name">
         <label for="name">Your name</label>
         <input type="text" id="name" name="name" autocomplete="name" maxlength="60" placeholder="First name is fine" aria-describedby="e-name">
-        <p class="err" id="e-name">Add your name so we know who's texting.</p>
+        <p class="err" id="e-name">Add your name so we know who’s texting.</p>
       </div>
       <div class="field">
         <label for="town">Your town <small>(optional)</small></label>
@@ -344,7 +348,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <textarea id="what" name="what" maxlength="600" placeholder="Cracked plaster, loose tiles, a sinking deck…"></textarea>
       </div>
       <button class="btn btn-primary" type="submit"><svg aria-hidden="true"><use href="#i-chat"/></svg>Text this to us</button>
-      <p class="sent" id="sent" role="status" hidden>Didn't open your messages? Call us at <a href="tel:+12157685602">215-768-5602</a>.</p>
+      <p class="sent" id="sent" role="status" hidden>Didn’t open your messages? <a id="openSms" href="sms:+12157685602">Open in Messages</a>, <button type="button" class="linkbtn" id="copyMsg">copy the message</button>, or call us at <a href="tel:+12157685602">215-768-5602</a>.</p>
+      <noscript><p class="after">Or text or call us at 215-768-5602.</p></noscript>
       <p class="after">Opens your messages with this written out.</p>
     </form>
   </div>
@@ -353,7 +358,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <section class="on-paper close" id="close" aria-labelledby="h-close">
   <div class="wrap">
     <div class="rise">
-      <h2 id="h-close">Arriaga's Pool &amp; Spa Renovation</h2>
+      <h2 id="h-close">Arriaga’s Pool &amp; Spa Renovation</h2>
       <p class="who">Built to last.</p>
       <p class="area">We work across Pennsylvania, New Jersey and Delaware. Not sure we cover your town? Call and ask.</p>
     </div>
@@ -364,14 +369,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 <footer>
   <div class="wrap">
-    <span>Arriaga's Pool &amp; Spa Renovation · PA · NJ · DE · <span class="nw">215-768-5602</span></span>
+    <span>Arriaga’s Pool &amp; Spa Renovation · PA · NJ · DE · <span class="nw">215-768-5602</span></span>
     <nav aria-label="Elsewhere">
       <a href="https://www.facebook.com/groups/993793040776921/permalink/3653115948177937/" rel="noopener">Facebook</a>
     </nav>
   </div>
 </footer>
 
-<a class="float" id="float" data-sms href="sms:+12157685602?&amp;body=Hi%2C%20I%20found%20your%20website.%20I'd%20like%20a%20free%20estimate%20for%20my%20pool." aria-label="Text us for a free estimate"><svg aria-hidden="true"><use href="#i-chat"/></svg></a>
+<a class="float" id="float" href="sms:+12157685602?&amp;body=Hi%2C%20I%20found%20your%20website.%20I'd%20like%20a%20free%20estimate%20for%20my%20pool." aria-label="Text us for a free estimate"><svg aria-hidden="true"><use href="#i-chat"/></svg></a>
 
 <script>
 /* ===== Config ===== */
@@ -419,13 +424,22 @@ document.documentElement.classList.add('js');
 /* ===== Quote form: composes a text ===== */
 (function(){
   var form=document.getElementById('quoteForm');if(!form)return;
+  var LAST='';
   function val(id){return document.getElementById(id).value.trim()}
+  // copy fallback: clipboard may be blocked in Facebook's in-app browser, so fall back to showing the text to select
+  document.getElementById('copyMsg').addEventListener('click',function(){
+    var b=this;
+    function shown(){b.textContent='copied';}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(LAST).then(shown,function(){prompt('Copy this message:',LAST)});
+    else prompt('Copy this message:',LAST);
+  });
   form.addEventListener('input',function(e){var f=e.target.closest('.field');if(f&&f.classList.contains('bad')&&(e.target.type==='radio'||e.target.value.trim()))f.classList.remove('bad')});
   form.addEventListener('change',function(e){if(e.target.name==='svc')document.getElementById('f-svc').classList.remove('bad')});
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var s=form.querySelector('input[name=svc]:checked'),name=val('name'),town=val('town'),what=val('what');
     document.getElementById('f-svc').classList.toggle('bad',!s);
+    [].forEach.call(form.querySelectorAll('input[name=svc]'),function(r){r.setAttribute('aria-invalid',s?'false':'true')});
     document.getElementById('f-name').classList.toggle('bad',!name);
     document.getElementById('name').setAttribute('aria-invalid',name?'false':'true');
     if(!s){document.getElementById('s1').focus();return}
@@ -433,7 +447,9 @@ document.documentElement.classList.add('js');
     var msg='Hi, this is '+name+'. I\'d like a free estimate for: '+s.value+'.';
     if(town)msg+=' Town: '+town+'.';
     if(what)msg+=' What I\'m seeing: '+what;
-    location.href='sms:'+CONFIG.PHONE+'?&body='+encodeURIComponent(msg);
+    var href='sms:'+CONFIG.PHONE+'?&body='+encodeURIComponent(msg);
+    document.getElementById('openSms').href=href;LAST=msg;
+    location.href=href;
     // if no messages app opened (desktop, some in-app browsers), say what to do instead
     setTimeout(function(){document.getElementById('sent').hidden=false},900);
   });
